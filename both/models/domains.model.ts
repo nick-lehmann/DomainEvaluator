@@ -1,7 +1,5 @@
-
-
 export interface Domain {
-  name: string;
+  domain: string;
   preSLD: string;
   postSLD: string;
 
@@ -10,6 +8,7 @@ export interface Domain {
   words: number;
   age: number;
   year: number;
+  
   visitors: number; // intervall-transformed
   deGooglePreSLD: number;
   enGooglePreSLD: number;
