@@ -1,0 +1,22 @@
+{
+    "public": {
+        "coefficients": {
+            "length": -0.00001907,
+            "hyphen": -0.7433,
+            "words": -0.1408,
+            "age": -0.000000000000001712,
+            "year": -0.1865,
+            "visitors": 0.1448,
+            "deGooglePreSLD": 0.05529,
+            "enGooglePreSLD": 0.00004635,
+            "preMDLS": 0.00001714,
+            "postMDLS": 0.000009722,
+            "preCPC": 0.11136,
+            "postCPC": 0.05214,
+            "preCOMP": 0.3998,
+            "HDAX": 1.31,
+            "googleAge": 0.000000000000000336,
+            "wordsHyphen": 0.2447
+        }
+    }
+}
