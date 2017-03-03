@@ -19,6 +19,6 @@ export interface Domain {
   preCOMP: number;
   HDAX: number;
   googleAge: number;
-  wordsHypen: number;
+  wordsHyphen: number;
   price: number;
 }
