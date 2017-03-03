@@ -19,6 +19,20 @@ DomainsCollection.before.insert(function(id, doc) {
             doc.hyphen++;
         }
     }
+});
 
+DomainsCollection.before.update(function( userId, doc, fieldNames, modifier, options ) {
 
-})
+    // trim postSLD to avoid splitting it into more words
+    // than actually there
+    if ( modifier.$set.postSLD ) {
+        modifier.$set.postSLD = modifier.$set.postSLD.trim();
+
+        // new postSLD is different from old
+        if ( modifier.$set.postSLD != doc.postSLD ) {
+            // set word count
+            modifier.$set.words = modifier.$set.postSLD.split(' ').length;
+            modifier.$set.wordsHyphen = modifier.$set.words * doc.hyphen;
+        }
+    }
+});
