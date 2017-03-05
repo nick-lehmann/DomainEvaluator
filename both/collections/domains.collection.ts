@@ -35,4 +35,13 @@ DomainsCollection.before.update(function( userId, doc, fieldNames, modifier, opt
             modifier.$set.wordsHyphen = modifier.$set.words * doc.hyphen;
         }
     }
+
+    if ( modifier.$set.age || modifier.$set.deGooglePreSLD ) {
+        console.log('googleAge gets recalculated');
+        // one of the values is new
+        var age = modifier.$set.age || doc.age;
+        var deGooglePreSLD = modifier.$set.deGooglePreSLD || doc.deGooglePreSLD;
+
+        modifier.$set.googleAge = Math.log(deGooglePreSLD) * Math.pow(age, 4);
+    }
 });
