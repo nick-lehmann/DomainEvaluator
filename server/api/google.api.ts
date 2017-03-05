@@ -21,16 +21,27 @@ class GoogleAPI {
         }
     }
 
-    getPostSLD(preSLD) {
+    fetchPostSLD(domainID) {
 
-        var query = 'http://www.google.com/search?q=' + preSLD
+        var domain: Domain = this.getDomain(domainID);
+
+        var query = 'http://www.google.com/search?q=' + domain.preSLD;
         var res = HTTP.call('GET', query);
 
         if ( res.statusCode == 200 ) {
             var $ = cheerio.load(res.content);
             var postSLD = $('#_FQd a').text();
             postSLD = postSLD.replace(/-/, ' ');
-            return postSLD;
+
+            DomainsCollection.update({
+                _id: domain._id
+            }, {
+                $set: {
+                    postSLD: postSLD
+                }
+            });
+
+            return true;
         } else {
             console.error('Request to Google Web Search failed');
             return false;
@@ -76,6 +87,8 @@ class GoogleAPI {
         }
     }
 
+    fetchGoogleTrafficData(domainID) {
+
         var domain: Domain = this.getDomain(domainID);
 
         var googleCache = JSON.parse(Assets.getText('googleCache.json'));
@@ -86,9 +99,11 @@ class GoogleAPI {
                 _id: domain._id
             }, {
                 $set: cachedGoogleEntry
-            })
+            });
+            return true;
         } else {
             console.error('no data cached for ' + domain.domain );
+            return false;
         }
 
     }
