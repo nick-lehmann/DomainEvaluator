@@ -1,0 +1,56 @@
+{
+    "1-raumwhg.de": {
+        "deGooglePreSLD": 501000,
+        "enGooglePreSLD": 183,
+        "preMDLS": 0,
+        "postMDLS": 0,
+        "preCPC": 0,
+        "postCPC": 0,
+        "preCOMP": 0
+    },
+    "1-raumwohnungen.de": {
+        "deGooglePreSLD": 36400,
+        "enGooglePreSLD": 1130,
+        "preMDLS": 10,
+        "postMDLS": 30,
+        "preCPC": 0.07,
+        "postCPC": 0.26,
+        "preCOMP": 0.5
+    },
+    "2-raumwhg.de": {
+        "deGooglePreSLD": 229000,
+        "enGooglePreSLD": 179000,
+        "preMDLS": 0,
+        "postMDLS": 10,
+        "preCPC": 0,
+        "postCPC": 0,
+        "preCOMP": 0
+    },
+    "2-raumwohnungen.de": {
+        "deGooglePreSLD": 69400,
+        "enGooglePreSLD": 403,
+        "preMDLS": 10,
+        "postMDLS": 40,
+        "preCPC": 0,
+        "postCPC": 0.16,
+        "preCOMP": 0.1
+    },
+    "wohnflächen.info": {
+        "deGooglePreSLD": 10400000,
+        "enGooglePreSLD": 750000,
+        "preMDLS": 5500,
+        "postMDLS": 5500,
+        "preCPC": 0.2,
+        "postCPC": 0.2,
+        "preCOMP": 0.1
+    },
+    "wohnfl.de": {
+        "deGooglePreSLD": 291000,
+        "enGooglePreSLD": 3470,
+        "preMDLS": 0,
+        "postMDLS": 1900,
+        "preCPC": 0,
+        "postCPC": 0.6,
+        "preCOMP": 0
+    }
+}

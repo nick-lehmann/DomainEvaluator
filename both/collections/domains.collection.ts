@@ -1,4 +1,5 @@
 import { Mongo } from 'meteor/mongo';
+import { Domain } from '../models/domains.model';
 
 export const DomainsCollection = new Mongo.Collection('domains-collection');
 
