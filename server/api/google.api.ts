@@ -1,38 +1,46 @@
-import { Meteor } from 'meteor/meteor';
 import { DomainsCollection } from '../../both/collections/domains.collection';
 import { Domain } from '../../both/models/domains.model';
+import { HTTP } from 'meteor/http';
+
+cheerio = require('cheerio');
 
 class GoogleAPI {
     constructor() {
 
     }
 
-    realCall(query) {
-
-        // get domain like done in fetchAndStore
-        // google(query, function( err, res ) {
-        //     var postSLD = res.$('#_FQd a ').text();
-        //     postSLD = postSLD.replace(/-/, ' ');
-        //     console.log(postSLD);
-        // });
-    }
-
-    fetchAndStore(domainID, selection) {
-
+    getDomain(domainID) {
         // check if parameter is an id
         var domain: Domain = <Domain>DomainsCollection.findOne({
             _id: domainID
         });
         if (domain == undefined ) {
-            domain: Domain = <Domain>DomainsCollection.findOne({
-                domain: domainID
-            });
-            if ( domain == undefined ) {
-                return false;
-            }
+            return false;
+        } else {
+            return domain;
+        }
+    }
+
+    getPostSLD(preSLD) {
+
+        var query = 'http://www.google.com/search?q=' + preSLD
+        var res = HTTP.call('GET', query);
+
+        if ( res.statusCode == 200 ) {
+            var $ = cheerio.load(res.content);
+            var postSLD = $('#_FQd a').text();
+            postSLD = postSLD.replace(/-/, ' ');
+            return postSLD;
+        } else {
+            console.error('Request to Google Web Search failed');
+            return false;
         }
 
-        console.log(domain)
+    }
+
+    googleTrafficData(domainID) {
+
+        var domain: Domain = this.getDomain(domainID);
 
         var googleCache = JSON.parse(Assets.getText('googleCache.json'));
         var cachedGoogleEntry: Domain = <Domain>googleCache[domain.domain];
@@ -46,6 +54,7 @@ class GoogleAPI {
         } else {
             console.error('no data cached for ' + domain.domain );
         }
+
     }
 }
 
