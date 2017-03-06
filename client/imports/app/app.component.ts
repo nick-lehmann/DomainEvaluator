@@ -9,6 +9,7 @@ import { DomainsObservable } from '../../../both/collections/domains.collection'
 })
 export class AppComponent implements OnInit {
     domains: any;
+    active: any;
 
     constructor() {
     }
@@ -16,5 +17,10 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         console.log('ngOnInit executed');
         this.domains = DomainsObservable.find().zone();
+        this.active = {};
+    }
+
+    setActive(domain) {
+        this.active = domain;
     }
 }
