@@ -24,3 +24,5 @@ shell-server@0.2.2
 matb33:collection-hooks
 http
 jquery
+twbs:bootstrap
+autopublish
