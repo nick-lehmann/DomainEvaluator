@@ -1,21 +1,31 @@
-<div class="clients-list">
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#tab-1"> All</a></li>
-    </ul>
-    <div class="tab-content">
-        <div id="tab-1" class="tab-pane active">
-            <div class="full-height-scroll">
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover">
-                        <tbody>
-                        <tr *ngFor="let domain of domains | async" (click)="setActive(domain)">
-                            <td>{{domain.domain}}</td>
-                        </tr>
-                        </tbody>
-                    </table>
+<!-- Domain List -->
+<div class="col-sm-8 col-sm-offset-2">
+    <div class="ibox">
+        <div class="ibox-content">
+            <h2>Domains</h2>
+            <domain-addform></domain-addform>
+
+            <div class="clients-list">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1"> All</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="full-height-scroll">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <tbody>
+                                    <tr *ngFor="let domain of domains | async" (click)="setActive(domain)">
+                                        <td>{{domain.domain}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-
     </div>
 </div>

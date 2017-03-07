@@ -1,8 +1,10 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from "./app.component";
+import { routes } from './app.routes';
 import { LAYOUT_DECLARATIONS } from './layout';
 import { DOMAINS_DECLARATIONS } from './domains';
 
@@ -23,7 +25,9 @@ import { DOMAINS_DECLARATIONS } from './domains';
   // Modules
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
   // Main Component
   bootstrap: [ AppComponent ]
