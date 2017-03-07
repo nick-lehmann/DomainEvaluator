@@ -19,8 +19,4 @@ export class AppComponent implements OnInit {
         this.domains = DomainsObservable.find().zone();
         this.active = {};
     }
-
-    setActive(domain) {
-        this.active = domain;
-    }
 }
