@@ -17,6 +17,7 @@
                                     <tbody>
                                     <tr *ngFor="let domain of domains | async" (click)="setActive(domain)">
                                         <td>{{domain.domain}}</td>
+                                        <td><button class="btn btn-danger" (click)="removeDomain(domain)">X</button></td>
                                     </tr>
                                     </tbody>
                                 </table>

@@ -16,4 +16,8 @@ export class DomainsListComponent {
     constructor() {
         this.domains = DomainsObservable.find({}).zone();
     }
+
+    removeDomain(domain: Domain): void {
+        DomainsObservable.remove(domain._id);
+    }
 }
