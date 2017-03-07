@@ -2,8 +2,8 @@ import { Mongo } from 'meteor/mongo';
 import { Domain } from '../models/domains.model';
 import { MongoObservable } from 'meteor-rxjs';
 
-export const DomainsCollection = new Mongo.Collection('domains-collection');
-export const DomainsObservable = new MongoObservable.Collection(DomainsCollection);
+export const DomainsCollection = new Mongo.Collection<Domain>('domains-collection');
+export const DomainsObservable = new MongoObservable.Collection<Domain>(DomainsCollection);
 
 DomainsCollection.before.insert(function(id, doc) {
     // preSLD
