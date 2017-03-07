@@ -2,21 +2,17 @@ import { DomainsCollection } from '../../both/collections/domains.collection';
 import { Domain } from '../../both/models/domains.model';
 import { HTTP } from 'meteor/http';
 
-cheerio = require('cheerio');
+var cheerio = require('cheerio');
 
 class FinanceAPI {
     constructor () {}
 
-    getDomain(domainID) {
+    getDomain(domainID): Domain {
         // check if parameter is an id
         var domain: Domain = <Domain>DomainsCollection.findOne({
             _id: domainID
         });
-        if (domain == undefined ) {
-            return false;
-        } else {
-            return domain;
-        }
+        return domain;
     }
 
     getHDAX () {

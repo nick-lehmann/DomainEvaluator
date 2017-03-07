@@ -2,26 +2,22 @@ import { DomainsCollection } from '../../both/collections/domains.collection';
 import { Domain } from '../../both/models/domains.model';
 import { HTTP } from 'meteor/http';
 
-cheerio = require('cheerio');
+var cheerio = require('cheerio');
 
 class GoogleAPI {
     constructor() {
 
     }
 
-    getDomain(domainID) {
+    getDomain(domainID): Domain {
         // check if parameter is an id
         var domain: Domain = <Domain>DomainsCollection.findOne({
             _id: domainID
         });
-        if (domain == undefined ) {
-            return false;
-        } else {
-            return domain;
-        }
+        return domain;
     }
 
-    fetchPostSLD(domainID) {
+    fetchPostSLD(domainID): boolean {
 
         var domain: Domain = this.getDomain(domainID);
 
@@ -56,10 +52,7 @@ class GoogleAPI {
         // german preSLD
         var queryGerman = "http://www.google.com/search?q=" + domain.preSLD + "&lr=lang_de";
 
-        console.log("German query: ", queryGerman);
-
         var res = HTTP.call('GET', queryGerman);
-        console.log(res);
         var $ = cheerio.load(res.content);
         var germanParts = $('#resultStats').text().split(' ');
         var germanResults = parseInt(germanParts[1].replace('.', '')); // in German, the single dot is used as decimal separator
