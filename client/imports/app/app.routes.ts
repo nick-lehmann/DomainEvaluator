@@ -8,7 +8,7 @@ export const routes: Route[] = [
         path: '',
         component: DomainsListComponent
     }, {
-        path: 'domain/:domainID',
+        path: 'domain/:domainId',
         component: DomainsDetailComponent
     }
 ]

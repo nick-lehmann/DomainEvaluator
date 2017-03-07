@@ -3,116 +3,115 @@
 
         <div class="ibox-content">
 
-            <h3>{{active.domain}}</h3>
+            <h3>{{activeDomain.domain}}</h3>
 
-            <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+            <form (submit)="saveDomain()">
 
                 <!-- Domain -->
                 <div class="form-group">
                     <label for="form-domain">Domain</label>
-                    <input type="text" class="form-control" id="form-domain" [(ngModel)]="active.domain" name="domain" placeholder="Domain name">
+                    <input type="text" class="form-control" id="form-domain" [(ngModel)]="activeDomain.domain" name="domain" placeholder="Domain name">
                 </div>
 
                 <!-- preSLD -->
                 <div class="form-group">
                     <label for="form-preSLD">preSLD</label>
-                    <p id="form-preSLD">{{active.preSLD}}</p>
+                    <p id="form-preSLD">{{activeDomain.preSLD}}</p>
                 </div>
 
                 <!-- postSLD -->
                 <div class="form-group">
                     <label for="form-postSLD">postSLD</label>
-                    <p id="form-postSLD">{{active.postSLD}}</p>
+                    <p id="form-postSLD">{{activeDomain.postSLD}}</p>
                 </div>
 
                 <!-- length -->
                 <div class="form-group">
                     <label for="form-length">Length</label>
-                    <p id="form-length">{{active.length}}</p>
+                    <p id="form-length">{{activeDomain.length}}</p>
                 </div>
 
                 <!-- hyphen -->
                 <div class="form-group">
                     <label for="form-hyphen">Hyphen</label>
-                    <p id="form-hyphen">{{active.hyphen}}</p>
+                    <p id="form-hyphen">{{activeDomain.hyphen}}</p>
                 </div>
 
                 <!-- words -->
                 <div class="form-group">
                     <label for="form-words">Words</label>
-                    <p id="form-words">{{active.words}}</p>
+                    <p id="form-words">{{activeDomain.words}}</p>
                 </div>
 
                 <!-- age -->
                 <div class="form-group">
                     <label for="form-age">Age in days</label>
-                    <input type="number" class="form-control" id="form-age" [(ngModel)]="active.age" name="age" placeholder="Age in days">
+                    <input type="number" class="form-control" id="form-age" [(ngModel)]="activeDomain.age" name="age" placeholder="Age in days">
                 </div>
 
                 <!-- year -->
                 <div class="form-group">
                     <label for="form-year">Year</label>
-                    <input type="number" class="form-control" id="form-year" [(ngModel)]="active.year" name="year" placeholder="Year">
+                    <input type="number" class="form-control" id="form-year" [(ngModel)]="activeDomain.year" name="year" placeholder="Year">
                 </div>
 
                 <!-- visitors -->
                 <div class="form-group">
                     <label for="form-visitors">Monthly visitors</label>
-                    <input type="number" class="form-control" id="form-visitors" [(ngModel)]="active.visitors" name="visitors" placeholder="monthly visitors">
+                    <input type="number" class="form-control" id="form-visitors" [(ngModel)]="activeDomain.visitors" name="visitors" placeholder="monthly visitors" step="0.01">
                 </div>
 
                 <!-- deGooglePreSLD -->
                 <div class="form-group">
                     <label for="form-deGooglePreSLD">deGooglePreSLD</label>
-                    <p id="form-deGooglePreSLD">{{active.deGooglePreSLD}}</p>
+                    <p id="form-deGooglePreSLD">{{activeDomain.deGooglePreSLD}}</p>
                 </div>
 
                 <!-- enGooglePreSLD -->
                 <div class="form-group">
                     <label for="form-enGooglePreSLD">enGooglePreSLD</label>
-                    <p id="form-enGooglePreSLD">{{active.enGooglePreSLD}}</p>
+                    <p id="form-enGooglePreSLD">{{activeDomain.enGooglePreSLD}}</p>
                 </div>
 
                 <!-- preMDLS -->
                 <div class="form-group">
                     <label for="form-preMDLS">Monthly searches preSLD</label>
-                    <p id="form-preMDLS">{{active.preMDLS}}</p>
+                    <p id="form-preMDLS">{{activeDomain.preMDLS}}</p>
                 </div>
 
                 <!-- postMDLS -->
                 <div class="form-group">
                     <label for="form-postMDLS">Monthly searches postSLD</label>
-                    <p id="form-postMDLS">{{active.postMDLS}}</p>
+                    <p id="form-postMDLS">{{activeDomain.postMDLS}}</p>
                 </div>
 
 
                 <!-- preCPC -->
                 <div class="form-group">
                     <label for="form-preCPC">Costs per Click preSLD</label>
-                    <p id="form-preCPC">{{active.preCPC}}</p>
+                    <p id="form-preCPC">{{activeDomain.preCPC}}</p>
                 </div>
 
 
                 <!-- postCPC -->
                 <div class="form-group">
                     <label for="form-postCPC">Costs per Click postSLD</label>
-                    <p id="form-postCPC">{{active.postCPC}}</p>
+                    <p id="form-postCPC">{{activeDomain.postCPC}}</p>
                 </div>
 
                 <!-- preCOMP -->
                 <div class="form-group">
                     <label for="form-preCOMP">Competition preSLD</label>
-                    <p id="form-preCOMP">{{active.preCOMP}}</p>
+                    <p id="form-preCOMP">{{activeDomain.preCOMP}}</p>
                 </div>
 
 
                 <!-- HDAX -->
                 <div class="form-group">
                     <label for="form-hdax">HDAX</label>
-                    <p id="form-hdax">{{active.HDAX}}</p>
+                    <p id="form-hdax">{{activeDomain.HDAX}}</p>
                 </div>
 
-                <button (click)="logActive()">log active</button>
                 <button type="submit">Submit</button>
 
             </form>
