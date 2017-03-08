@@ -21,13 +21,21 @@ class GoogleAPI {
 
         var domain: Domain = this.getDomain(domainID);
 
+        console.log('google api: fetching postSLD for', domain.domain);
+
         var query = 'http://www.google.com/search?q=' + domain.preSLD;
         var res = HTTP.call('GET', query);
 
         if ( res.statusCode == 200 ) {
+            console.log(res.content);
             var $ = cheerio.load(res.content);
             var postSLD = $('#_FQd a').text();
             postSLD = postSLD.replace(/-/, ' ');
+            console.log('postSLD: ', postSLD);
+
+            if (!postSLD) {
+                postSLD = domain.preSLD;
+            }
 
             DomainsCollection.update({
                 _id: domain._id
