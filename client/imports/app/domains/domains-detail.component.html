@@ -4,8 +4,9 @@
         <div class="ibox-content">
 
             <h3>{{activeDomain.domain}}</h3>
-
-            <form (submit)="saveDomain()">
+            <a [routerLink]="['']">Back</a>
+            <hr>
+            <form *ngIf="activeDomain" (submit)="saveDomain()">
 
                 <!-- Domain -->
                 <div class="form-group">
@@ -105,14 +106,25 @@
                     <p id="form-preCOMP">{{activeDomain.preCOMP}}</p>
                 </div>
 
-
                 <!-- HDAX -->
                 <div class="form-group">
                     <label for="form-hdax">HDAX</label>
                     <p id="form-hdax">{{activeDomain.HDAX}}</p>
                 </div>
 
-                <button type="submit">Submit</button>
+                <!-- Price -->
+                <div class="form-group">
+                    <label for="form-price">Price</label>
+                    <p id="form-price">{{activeDomain.price}}€</p>
+                </div>
+
+                <button type="button" class="btn btn-default" (click)="fetchPostSLD()">Fetch postSLD</button>
+                <button type="button" class="btn btn-default" (click)="fetchGoogleData()">Fetch Google data</button>
+                <button type="button" class="btn btn-default" (click)="fetchFinance()">Fetch Finance</button>
+                <button type="button" class="btn btn-default" (click)="calculatePrice()">Calculate Price</button>
+                <button type="button" class="btn btn-default" (click)="reload()">Reload</button>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
 
             </form>
 

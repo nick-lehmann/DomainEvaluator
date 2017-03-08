@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { MeteorObservable } from 'meteor-rxjs';
+import { Meteor } from 'meteor/meteor';
 
 import 'rxjs/add/operator/map';
 
@@ -26,13 +28,32 @@ export class DomainsDetailComponent {
             .subscribe(domainId => {
                 this.domainId = domainId;
                 console.log(domainId);
-                this.activeDomain = <Domain>DomainsObservable.findOne(this.domainId);
-                console.log(this.activeDomain);
+                this.activeDomain = DomainsObservable.findOne(domainId);
             });
     }
 
     ngOnDestroy() {
         this.domainSub.unsubscribe();
+    }
+
+    fetchPostSLD() {
+        Meteor.call('fetchPostSLD', this.activeDomain._id);
+    }
+
+    fetchGoogleData() {
+        Meteor.call('fetchGoogleData', this.activeDomain._id);
+    }
+
+    fetchFinance() {
+        Meteor.call('fetchFinance', this.activeDomain._id);
+    }
+
+    calculatePrice() {
+        Meteor.call('calculatePrice', this.activeDomain._id);
+    }
+
+    reload() {
+        this.activeDomain = DomainsObservable.findOne(this.domainId);
     }
 
     saveDomain() {
