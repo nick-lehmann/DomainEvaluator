@@ -17,11 +17,12 @@ class FinanceAPI {
 
     getHDAX () {
 
+        console.log('getHDAX');
         var res = HTTP.call('GET', 'http://www.quotenet.com/index/HDAX');
 
         if ( res.statusCode == 200 ) {
             var $ = cheerio.load(res.content);
-            var hdaxRaw = $('.pricebox .content').find('th')[0].children[0].data
+            var hdaxRaw = $('.snapshot-headline-table .push-data')[0].children[0].data;
             var hdax = parseFloat(hdaxRaw.replace(',', ''));
             return hdax;
         } else {
@@ -44,7 +45,7 @@ class FinanceAPI {
                     HDAX: hdax
                 }
             });
-            return true;
+            return hdax;
         }
         return false;
     }
